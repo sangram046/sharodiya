@@ -1,0 +1,702 @@
+/* =====================================================
+   SHARODIYA STATUS CAPSULES
+
+   LEFT   → Time
+   CENTER → Devi Paksha Countdown
+   RIGHT  → Online Visitors
+===================================================== */
+
+
+/* =====================================================
+   MAIN STATUS BAR
+===================================================== */
+
+.sharodiya-status-bar {
+
+    position: fixed;
+
+    top: 10px;
+    left: 0;
+    right: 0;
+
+    z-index: 7000;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 0 20px;
+
+    gap: 14px;
+
+    pointer-events: none;
+}
+
+
+/* =====================================================
+   COMMON CAPSULE
+===================================================== */
+
+.status-capsule {
+
+    min-height: 60px;
+
+    display: inline-flex;
+
+    align-items: center;
+
+    border: 1px solid rgba(255,255,255,0.12);
+
+    background:
+        rgba(19,20,31,0.66);
+
+    box-shadow:
+
+        0 10px 35px rgba(0,0,0,0.28),
+
+        inset 0 1px 0 rgba(255,255,255,0.08);
+
+    backdrop-filter:
+        blur(22px)
+        saturate(130%);
+
+    -webkit-backdrop-filter:
+        blur(22px)
+        saturate(130%);
+
+    color: #f8fafc;
+
+    white-space: nowrap;
+
+    pointer-events: auto;
+}
+
+
+/* =====================================================
+   LEFT — CLOCK
+===================================================== */
+
+.status-clock {
+
+    padding: 0 14px;
+
+    border-radius: 999px;
+
+    gap: 6px;
+}
+
+
+.status-clock-time {
+
+    font-size: 20px;
+
+    line-height: 1;
+
+    font-weight: 800;
+
+    letter-spacing: -0.15px;
+}
+
+
+.status-clock-zone {
+
+    font-size: 15px;
+
+    line-height: 1;
+
+    font-weight: 800;
+
+    letter-spacing: 0.65px;
+
+    color:
+        rgba(255,255,255,0.50);
+}
+
+
+/* =====================================================
+   CENTER — DEVI PAKSHA COUNTDOWN
+===================================================== */
+
+.status-countdown {
+
+    position: absolute;
+
+    left: 50%;
+
+    transform:
+        translateX(-50%);
+
+    padding: 0 16px;
+
+    border-radius: 999px;
+
+    gap: 8px;
+}
+
+
+/* =====================================================
+   DEVI PAKSHA ICON
+===================================================== */
+
+.status-devi-icon {
+
+    display: inline-flex;
+
+    align-items: center;
+    justify-content: center;
+
+    color: #f5a400;
+
+    font-size: 17px;
+
+    line-height: 1;
+
+    text-shadow:
+        0 0 10px
+        rgba(245,164,0,0.45);
+}
+
+
+/* =====================================================
+   COUNTDOWN TEXT
+===================================================== */
+
+#statusCountdownText {
+
+    font-size: 17px;
+
+    font-weight: 700;
+
+    line-height: 1;
+
+    color:
+        rgba(255,255,255,0.88);
+}
+
+
+/* =====================================================
+   RIGHT — ONLINE
+===================================================== */
+
+.status-online {
+
+    padding: 0 16px;
+
+    border-radius: 999px;
+
+    gap: 8px;
+}
+
+
+/* =====================================================
+   LIVE GREEN DOT
+===================================================== */
+
+.status-live-dot {
+
+    width: 10px;
+    height: 10px;
+
+    flex: 0 0 10px;
+
+    border-radius: 50%;
+
+    background: #00e676;
+
+    box-shadow:
+
+        0 0 0 4px
+        rgba(0,230,118,0.08),
+
+        0 0 12px
+        rgba(0,230,118,0.45);
+}
+
+
+/* =====================================================
+   ONLINE NUMBER
+===================================================== */
+
+.status-online strong {
+
+    font-size: 17px;
+
+    font-weight: 800;
+
+    line-height: 1;
+}
+
+
+/* =====================================================
+   ONLINE TEXT
+===================================================== */
+
+.status-online-label {
+
+    font-size: 15px;
+
+    font-weight: 700;
+
+    line-height: 1;
+
+    color:
+        rgba(255,255,255,0.82);
+}
+
+
+/* =====================================================
+   TABLET
+===================================================== */
+
+@media (max-width: 900px) {
+
+    .sharodiya-status-bar {
+
+        padding: 0 12px;
+
+        gap: 8px;
+    }
+
+
+    .status-capsule {
+
+        min-height: 48px;
+    }
+
+
+    .status-clock-time {
+
+        font-size: 15px;
+    }
+
+
+    .status-clock-zone {
+
+        font-size: 11px;
+    }
+
+
+    #statusCountdownText {
+
+        font-size: 13px;
+    }
+
+
+    .status-online strong {
+
+        font-size: 14px;
+    }
+
+
+    .status-online-label {
+
+        font-size: 12px;
+    }
+
+}
+
+
+/* =====================================================
+   MOBILE
+===================================================== */
+
+@media (max-width: 600px) {
+
+    .sharodiya-status-bar {
+
+        top: 8px;
+
+        left: 0;
+        right: 0;
+
+        padding: 0 7px;
+
+        gap: 5px;
+    }
+
+
+    .status-capsule {
+
+        min-height: 38px;
+    }
+
+
+    /* ---------------------------------------------
+       CLOCK
+    --------------------------------------------- */
+
+    .status-clock {
+
+        padding: 0 9px;
+
+        gap: 4px;
+    }
+
+
+    .status-clock-time {
+
+        font-size: 12px;
+    }
+
+
+    .status-clock-zone {
+
+        display: none;
+    }
+
+
+    /* ---------------------------------------------
+       DEVI PAKSHA
+    --------------------------------------------- */
+
+    .status-countdown {
+
+        position: absolute;
+
+        left: 50%;
+
+        transform:
+            translateX(-50%);
+
+        padding: 0 9px;
+
+        gap: 5px;
+
+        max-width: 150px;
+    }
+
+
+    .status-devi-icon {
+
+        font-size: 12px;
+    }
+
+
+    #statusCountdownText {
+
+        max-width: 115px;
+
+        overflow: hidden;
+
+        text-overflow: ellipsis;
+
+        font-size: 9px;
+    }
+
+
+    /* ---------------------------------------------
+       ONLINE
+    --------------------------------------------- */
+
+    .status-online {
+
+        padding: 0 9px;
+
+        gap: 5px;
+    }
+
+
+    .status-live-dot {
+
+        width: 7px;
+        height: 7px;
+
+        flex-basis: 7px;
+    }
+
+
+    .status-online strong {
+
+        font-size: 11px;
+    }
+
+
+    .status-online-label {
+
+        font-size: 9px;
+    }
+
+}
+
+
+/* =====================================================
+   VERY SMALL MOBILE
+===================================================== */
+
+@media (max-width: 380px) {
+
+    .sharodiya-status-bar {
+
+        padding: 0 5px;
+
+        gap: 3px;
+    }
+
+
+    .status-clock {
+
+        padding: 0 7px;
+    }
+
+
+    .status-countdown {
+
+        max-width: 125px;
+
+        padding: 0 7px;
+    }
+
+
+    #statusCountdownText {
+
+        max-width: 95px;
+
+        font-size: 8px;
+    }
+
+
+    .status-online {
+
+        padding: 0 7px;
+    }
+
+
+    .status-online-label {
+
+        display: none;
+    }
+
+}
+
+/*RIGHT SIDE CAPSUL*/
+.status-puja {
+    padding: 0 16px;
+    border-radius: 999px;
+    gap: 8px;
+}
+
+.status-puja-icon {
+    font-size: 17px;
+    line-height: 1;
+}
+
+#statusPujaText {
+    font-family: "Noto Serif Bengali", "Manrope", serif;
+    font-size: 17px;
+    font-weight: 700;
+    line-height: 1.2;
+    color: rgba(255,255,255,0.88);
+}
+
+.status-puja.is-puja-day {
+    background:
+        rgba(19,20,31,0.66);
+
+    box-shadow:
+
+        0 10px 35px rgba(0,0,0,0.28),
+
+        inset 0 1px 0 rgba(255,255,255,0.08);
+
+    backdrop-filter:
+        blur(22px)
+        saturate(130%);
+
+    -webkit-backdrop-filter:
+        blur(22px)
+        saturate(130%);
+
+    color: #f8fafc;
+}
+
+@media (max-width: 900px) {
+    .status-puja-icon { font-size: 14px; }
+    #statusPujaText   { font-size: 13px; }
+}
+
+@media (max-width: 600px) {
+    .status-puja { padding: 0 9px; gap: 5px; }
+    .status-puja-icon { font-size: 11px; }
+    #statusPujaText {
+        font-size: 10px;
+        max-width: 80px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+}
+
+@media (max-width: 380px) {
+    #statusPujaText { max-width: 62px; font-size: 9px; }
+}
+
+
+/* =====================================================
+   LEFT GROUP : CLOCK + LOGO
+===================================================== */
+
+.sharodiya-status-bar .status-left {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.status-logo {
+    width: 60px;
+    height: 60px;
+    min-width: 60px;
+    min-height: 60px;
+    padding: 0;
+    aspect-ratio: 1 / 1;
+    border-radius: 50%;
+    overflow: hidden;
+    justify-content: center;
+    align-items: center;
+    flex: 0 0 auto;
+}
+
+.status-logo img {
+    width: 100%;
+    height: 100%;
+    aspect-ratio: 1 / 1;
+    display: block;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+.status-logo[hidden] {
+    display: none;
+}
+
+@media (max-width: 900px) {
+    .status-logo {
+        width: 48px;
+        height: 48px;
+        min-width: 48px;
+        min-height: 48px;
+        aspect-ratio: 1 / 1;
+    }
+}
+
+@media (max-width: 600px) {
+    .sharodiya-status-bar .status-left {
+        gap: 5px;
+    }
+
+    .status-logo {
+        width: 38px;
+        height: 38px;
+        min-width: 38px;
+        min-height: 38px;
+        aspect-ratio: 1 / 1;
+    }
+}
+
+@media (max-width: 380px) {
+    .sharodiya-status-bar .status-left { gap: 3px; }
+}
+
+
+
+/* =====================================================
+   RIGHT GROUP : QR + INSTAGRAM CIRCLES + STATUS
+===================================================== */
+
+.sharodiya-status-bar .status-right {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.status-actions {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.status-circle {
+    width: 60px;
+    padding: 0;
+    justify-content: center;
+    border-radius: 50%;
+    color: #f5a400;
+    font: inherit;
+    cursor: pointer;
+    transition:
+        transform 0.25s ease,
+        border-color 0.25s ease,
+        box-shadow 0.25s ease;
+}
+
+.status-circle svg {
+    width: 46%;
+    height: 46%;
+    display: block;
+}
+
+.status-circle:hover {
+    transform: translateY(-2px);
+    border-color: rgba(245, 164, 0, 0.5);
+}
+
+.status-circle:focus-visible {
+    outline: 2px solid #f5a400;
+    outline-offset: 2px;
+}
+
+.status-circle[hidden] {
+    display: none;
+}
+
+@media (max-width: 900px) {
+    .status-circle { width: 48px; }
+}
+
+/* Phones / small tablets: the two circles drop to a second row
+   (right side) so they never touch the countdown capsule. */
+@media (max-width: 700px) {
+
+    .status-actions {
+        position: fixed;
+        top: 66px;
+        right: 12px;
+    }
+}
+
+@media (max-width: 600px) {
+
+    .status-actions {
+        top: 54px;
+        right: 7px;
+        gap: 6px;
+    }
+
+    .status-circle { width: 38px; }
+
+    .sharodiya-status-bar .status-right { gap: 5px; }
+}
+
+
+/* Very small phones (320px): keep logo clear of the countdown */
+@media (max-width: 360px) {
+
+    .status-clock {
+        padding: 0 6px;
+    }
+
+    .status-logo {
+    width: 32px;
+    height: 32px;
+    min-width: 32px;
+    min-height: 32px;
+    aspect-ratio: 1 / 1;
+}
+
+    .status-countdown {
+        max-width: 118px;
+    }
+
+    #statusCountdownText {
+        max-width: 88px;
+    }
+}

@@ -1,0 +1,3034 @@
+/* =====================================================
+   RESET
+===================================================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: "Manrope", sans-serif;
+    background: #09090f;
+    color: #f8fafc;
+    line-height: 1.6;
+    padding-bottom: 190px;
+}
+
+button,
+input {
+    font-family: inherit;
+}
+
+button {
+    border: none;
+    cursor: pointer;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+
+/* =====================================================
+   TIME BASED BACKGROUND
+===================================================== */
+
+.time-background {
+    position: fixed;
+    inset: 0;
+    width: 100%;
+    height: 100vh;
+    z-index: -2;
+    overflow: hidden;
+    pointer-events: none;
+}
+
+.background-layer {
+    position: absolute;
+    inset: 0;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    transition:
+        opacity 1.8s ease-in-out,
+        transform 8s ease;
+    transform: scale(1.03);
+}
+
+.background-layer-1 {
+    background-image: url("../html/images/backgrounds/durga3.PNG");
+    opacity: 1;
+}
+
+.background-layer-2 {
+    background-image: url("../html/images/backgrounds/durga3.PNG");
+    opacity: 0;
+}
+
+.background-overlay {
+    position: absolute;
+    inset: 0;
+    background:
+        linear-gradient(
+            180deg,
+            rgba(3, 10, 18, 0.214) 0%,
+            rgba(9, 9, 15, 0.55) 45%,
+            rgba(9, 9, 15, 0.222) 100%
+        );
+    z-index: 3;
+}
+
+
+/* =====================================================
+   NAVBAR
+===================================================== */
+
+.navbar {
+    height: 76px;
+    padding: 0 7%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: rgba(9, 9, 15, 0.90);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 18px;
+    font-weight: 800;
+    letter-spacing: 1px;
+}
+
+.logo-icon {
+    font-size: 25px;
+}
+
+.navbar nav {
+    display: flex;
+    gap: 30px;
+}
+
+.navbar nav a {
+    position: relative;
+    color: #a1a1aa;
+    font-size: 13px;
+    font-weight: 600;
+    transition: color 0.3s ease;
+}
+
+.navbar nav a::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -8px;
+    width: 0;
+    height: 2px;
+    background: #f59e0b;
+    transition: width 0.3s ease;
+}
+
+.navbar nav a:hover,
+.navbar nav a.active {
+    color: #ffffff;
+}
+
+.navbar nav a:hover::after,
+.navbar nav a.active::after {
+    width: 100%;
+}
+
+.menu-btn {
+    display: none;
+    background: transparent;
+    color: white;
+    font-size: 25px;
+}
+
+
+/* =====================================================
+   MOBILE MENU
+===================================================== */
+
+.mobile-menu {
+    display: none;
+    position: fixed;
+    top: 76px;
+    left: 0;
+    right: 0;
+    z-index: 999;
+    background: rgba(17, 17, 26, 0.98);
+    padding: 20px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(15px);
+}
+
+.mobile-menu a {
+    display: block;
+    padding: 14px;
+    color: #ddd;
+    font-size: 15px;
+    font-weight: 600;
+    border-radius: 8px;
+    transition:
+        background 0.3s ease,
+        color 0.3s ease;
+}
+
+.mobile-menu a:hover {
+    background: rgba(245, 158, 11, 0.1);
+    color: #fbbf24;
+}
+
+
+/* =====================================================
+   HIDDEN YOUTUBE PLAYER
+===================================================== */
+
+#youtubePlayerContainer {
+    position: fixed;
+    width: 1px;
+    height: 1px;
+    left: -9999px;
+    top: -9999px;
+    opacity: 0;
+    pointer-events: none;
+}
+
+
+/* =====================================================
+   HERO
+===================================================== */
+
+.hero {
+    position: relative;
+    min-height: 100vh;
+    padding: 90px 7%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    overflow: hidden;
+    background:
+        radial-gradient(
+            circle at 70% 40%,
+            rgba(124, 58, 237, 0.28),
+            transparent 35%
+        ),
+        radial-gradient(
+            circle at 20% 80%,
+            rgba(220, 38, 38, 0.18),
+            transparent 30%
+        );
+}
+
+.hero-content {
+    max-width: 650px;
+}
+
+.small-title {
+    color: #f59e0b;
+    font-size: 25px;
+    font-weight: 800;
+    letter-spacing: 3px;
+    margin-bottom: 20px;
+}
+
+.hero h1 {
+    font-size: clamp(50px, 7vw, 90px);
+    line-height: 1;
+    letter-spacing: -4px;
+}
+
+.hero h1 span {
+    display: block;
+    background:
+        linear-gradient(
+            90deg,
+            #f59e0b,
+            #ef4444,
+            #a855f7
+        );
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+    -webkit-text-fill-color: transparent;
+}
+
+.hero-bengali {
+    font-family:
+        "Noto Serif Bengali",
+        serif;
+    font-size: 23px;
+    margin-top: 25px;
+    color: #ffffff;
+}
+
+.hero-description {
+    max-width: 520px;
+    margin-top: 12px;
+    color: #b3b3b9;
+    font-size: 15px;
+}
+
+.hero-buttons {
+    display: flex;
+    gap: 15px;
+    margin-top: 30px;
+}
+
+.primary-btn,
+.secondary-btn {
+    padding: 13px 22px;
+    border-radius: 10px;
+    font-weight: 700;
+    transition:
+        transform 0.3s ease,
+        background 0.3s ease,
+        border-color 0.3s ease;
+}
+
+.primary-btn {
+    background: #f59e0b;
+    color: #111;
+}
+
+.primary-btn:hover {
+    background: #fbbf24;
+    transform: translateY(-2px);
+}
+
+.secondary-btn {
+    background: rgba(255, 255, 255, 0.07);
+    color: white;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.secondary-btn:hover {
+    background: rgba(255, 255, 255, 0.12);
+    border-color: rgba(245, 158, 11, 0.4);
+    transform: translateY(-2px);
+}
+
+
+/* =====================================================
+   HERO ART
+===================================================== */
+
+.hero-art {
+    width: 360px;
+    height: 360px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.mandala {
+    position: absolute;
+    width: 300px;
+    height: 300px;
+    border: 2px solid rgba(245, 158, 11, 0.35);
+    border-radius: 50%;
+    box-shadow:
+        0 0 0 30px rgba(245, 158, 11, 0.04),
+        0 0 0 60px rgba(245, 158, 11, 0.025);
+    animation: rotate 20s linear infinite;
+}
+
+.durga-symbol {
+    position: relative;
+    z-index: 2;
+    font-size: 100px;
+    color: #f59e0b;
+    text-shadow:
+        0 0 25px rgba(245, 158, 11, 0.35);
+}
+
+.floating-text {
+    position: absolute;
+    right: 5px;
+    bottom: 25px;
+    font-family:
+        "Noto Serif Bengali",
+        serif;
+    font-size: 25px;
+    line-height: 1.3;
+    color: #fbbf24;
+    text-shadow:
+        0 0 20px rgba(251, 191, 36, 0.25);
+}
+
+@keyframes rotate {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+
+
+
+
+
+
+/* =====================================================
+   SECTIONS
+===================================================== */
+
+.section {
+    padding: 50px 7%;
+    scroll-margin-top: 80px;
+}
+
+.section-heading {
+    display: flex;
+    justify-content: space-between;
+    align-items: end;
+    margin-bottom: 25px;
+}
+
+.section-label {
+    font-size: 11px;
+    color: #f59e0b;
+    font-weight: 800;
+    letter-spacing: 2px;
+}
+
+.section-heading h2 {
+    font-size: 32px;
+    line-height: 1.2;
+}
+
+.section-heading > a {
+    color: #a1a1aa;
+    font-size: 14px;
+    transition: color 0.3s ease;
+}
+
+.section-heading > a:hover {
+    color: #fbbf24;
+}
+
+
+/* =====================================================
+   FEATURED MAHALAYA
+===================================================== */
+
+.featured-card {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    min-height: 300px;
+    background:
+        linear-gradient(
+            120deg,
+            #21132cd8,
+            #11111a
+        );
+    border-radius: 20px;
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.07);
+    box-shadow:
+        0 20px 60px rgba(0, 0, 0, 0.2);
+}
+
+.featured-image {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 300px;
+    background:
+        radial-gradient(
+            circle,
+            #f59e0b 0%,
+            #7c2d12 25%,
+            #18111d 65%
+        );
+}
+
+.sun {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    background: #fbbf24;
+    box-shadow:
+        0 0 70px #f59e0b;
+}
+
+.temple {
+    position: absolute;
+    font-size: 70px;
+    color: #111;
+}
+
+.featured-content {
+    padding: 50px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.badge {
+    width: fit-content;
+    padding: 6px 10px;
+    border-radius: 5px;
+    background: rgba(245, 158, 11, 0.15);
+    color: #fbbf24;
+    font-size: 10px;
+    font-weight: 800;
+    letter-spacing: 1px;
+}
+
+.featured-content h3 {
+    font-family:
+        "Noto Serif Bengali",
+        serif;
+    font-size: 40px;
+    margin: 12px 0;
+}
+
+.featured-content p {
+    color: #a1a1aa;
+    max-width: 500px;
+}
+
+.play-featured {
+    width: fit-content;
+    margin-top: 25px;
+    padding: 12px 20px;
+    border-radius: 8px;
+    background: #f59e0b;
+    color: #111;
+    font-weight: 800;
+    transition:
+        background 0.3s ease,
+        transform 0.3s ease;
+}
+
+.play-featured:hover {
+    background: #fbbf24;
+    transform: translateY(-2px);
+}
+
+
+/* =====================================================
+   SONG GRID
+===================================================== */
+
+.song-grid {
+    display: grid;
+    grid-template-columns:
+        repeat(4, minmax(0, 1fr));
+    gap: 20px;
+}
+
+.song-card {
+    background: #11111a;
+    border-radius: 14px;
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    transition:
+        transform 0.3s ease,
+        border-color 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+.song-card:hover {
+    transform: translateY(-5px);
+    border-color: rgba(245, 158, 11, 0.4);
+    box-shadow:
+        0 15px 35px rgba(0, 0, 0, 0.2);
+}
+
+.song-thumbnail {
+    height: 190px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.thumbnail-1 {
+    background:
+        radial-gradient(
+            circle at center,
+            #f59e0b,
+            #7c2d12,
+            #18111b
+        );
+}
+
+.thumbnail-2 {
+    background:
+        linear-gradient(
+            135deg,
+            #312e81,
+            #7e22ce
+        );
+}
+
+.thumbnail-3 {
+    background:
+        linear-gradient(
+            135deg,
+            #991b1b,
+            #f59e0b
+        );
+}
+
+.thumbnail-4 {
+    background:
+        linear-gradient(
+            135deg,
+            #064e3b,
+            #ca8a04
+        );
+}
+
+.song-category {
+    position: absolute;
+    top: 12px;
+    left: 12px;
+    background: rgba(0, 0, 0, 0.55);
+    padding: 5px 8px;
+    border-radius: 5px;
+    font-size: 9px;
+    font-weight: 800;
+    letter-spacing: 0.5px;
+    backdrop-filter: blur(5px);
+}
+
+.card-play {
+    width: 55px;
+    height: 55px;
+    border-radius: 50%;
+    background: white;
+    color: #111;
+    font-size: 20px;
+    opacity: 0;
+    transform: scale(0.8);
+    transition:
+        opacity 0.3s ease,
+        transform 0.3s ease;
+}
+
+.song-card:hover .card-play {
+    opacity: 1;
+    transform: scale(1);
+}
+
+.card-play:hover {
+    background: #f59e0b;
+}
+
+.song-info {
+    padding: 15px;
+}
+
+.song-info h3 {
+    font-size: 15px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.song-info p {
+    font-size: 12px;
+    color: #71717a;
+    margin-top: 3px;
+}
+
+
+/* =====================================================
+   MAHALAYA SONG SECTION
+===================================================== */
+
+.mahalaya-section {
+    background:
+        radial-gradient(
+            circle at 15% 20%,
+            rgba(245, 158, 11, 0.08),
+            transparent 30%
+        ),
+        radial-gradient(
+            circle at 85% 80%,
+            rgba(127, 29, 29, 0.10),
+            transparent 35%
+        );
+    border-top: 1px solid rgba(245, 158, 11, 0.05);
+    border-bottom: 1px solid rgba(245, 158, 11, 0.05);
+}
+
+.mahalaya-card {
+    background:
+        linear-gradient(
+            145deg,
+            #24120b,
+            #11111a
+        );
+}
+
+.mahalaya-card:hover {
+    border-color: rgba(245, 158, 11, 0.45);
+}
+
+.mahalaya-thumbnail {
+    height: 190px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.mahalaya-thumbnail-1 {
+    background:
+        linear-gradient(
+            135deg,
+            #d83a3a,
+            #970c0c,
+            #ffa200
+        );
+}
+
+.mahalaya-thumbnail-2 {
+    background:
+        linear-gradient(
+            135deg,
+            #7f1d1d,
+            #dc2626,
+            #f59e0b
+        );
+}
+
+.mahalaya-thumbnail-3 {
+    background:
+        linear-gradient(
+            135deg,
+            #451a03,
+            #b45309,
+            #fbbf24
+        );
+}
+
+.mahalaya-thumbnail-4 {
+    background:
+        linear-gradient(
+            135deg,
+            #db2d2d,
+            #a73e05,
+            #edbe01
+        );
+}
+
+
+/* =====================================================
+   PANDAL SONG SECTION
+===================================================== */
+
+.pandal-section {
+    background:
+        radial-gradient(
+            circle at 80% 20%,
+            rgba(124, 58, 237, 0.10),
+            transparent 32%
+        ),
+        radial-gradient(
+            circle at 20% 80%,
+            rgba(14, 165, 233, 0.08),
+            transparent 35%
+        );
+    border-top: 1px solid rgba(124, 58, 237, 0.07);
+    border-bottom: 1px solid rgba(124, 58, 237, 0.07);
+}
+
+.pandal-song-card {
+    background:
+        linear-gradient(
+            145deg,
+            #11152a,
+            #11111a
+        );
+}
+
+.pandal-song-card:hover {
+    border-color: rgba(124, 58, 237, 0.45);
+}
+
+.pandal-thumbnail {
+    height: 190px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.pandal-thumbnail-1 {
+    background:
+        linear-gradient(
+            135deg,
+            #312e81,
+            #7c3aed,
+            #1e1b4b
+        );
+}
+
+.pandal-thumbnail-2 {
+    background:
+        linear-gradient(
+            135deg,
+            #0c4a6e,
+            #2563eb,
+            #172554
+        );
+}
+
+.pandal-thumbnail-3 {
+    background:
+        linear-gradient(
+            135deg,
+            #581c87,
+            #db2777,
+            #3b0764
+        );
+}
+
+.pandal-thumbnail-4 {
+    background:
+        linear-gradient(
+            135deg,
+            #064e3b,
+            #0d9488,
+            #164e63
+        );
+}
+
+
+/* =====================================================
+   NO RESULTS
+===================================================== */
+
+.no-results {
+    display: none;
+    text-align: center;
+    color: #71717a;
+    padding: 40px;
+    font-size: 14px;
+}
+
+
+/* =====================================================
+   FOOTER
+===================================================== */
+
+footer {
+    text-align: center;
+    padding: 70px 7% 130px;
+    border-top: 1px solid rgba(255, 255, 255, 0.07);
+    color: #dfdfdf;
+}
+
+.footer-logo {
+    color: white;
+    font-size: 18px;
+    font-weight: 800;
+}
+
+.footer-links {
+    margin: 20px 0;
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+}
+
+.footer-links a {
+    font-size: 13px;
+    transition: color 0.3s ease;
+}
+
+.footer-links a:hover {
+    color: #fbbf24;
+}
+
+.copyright {
+    font-size: 11px;
+}
+
+
+/* =====================================================
+   FLOATING MUSIC PLAYER
+===================================================== */
+
+.music-player {
+    position: fixed;
+    left: 50%;
+    bottom: 24px;
+    transform: translateX(-50%);
+    width: min(800px, calc(100% - 30px));
+    height: 150px;
+    padding: 12px 16px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    background:
+        linear-gradient(
+            135deg,
+            rgba(46, 40, 28, 0.72),
+            rgba(38, 22, 22, 0.68)
+        );
+    border: 1px solid rgba(255, 255, 255, 0.13);
+    border-radius: 24px;
+    box-shadow:
+        0 20px 55px rgba(0, 0, 0, 0.45),
+        inset 0 1px 0 rgba(255, 255, 255, 0.06);
+    backdrop-filter: blur(25px);
+    -webkit-backdrop-filter: blur(25px);
+    z-index: 5000;
+    overflow: hidden;
+    transition: box-shadow 0.3s ease;
+}
+
+.music-player:hover {
+    box-shadow:
+        0 25px 70px rgba(0, 0, 0, 0.55),
+        inset 0 1px 0 rgba(255, 255, 255, 0.08);
+}
+
+
+/* =====================================================
+   ALBUM ART
+===================================================== */
+
+.mini-thumbnail {
+    width: 100px;
+    height: 100px;
+    flex-shrink: 0;
+    overflow: hidden;
+    border-radius: 20px;
+    background: #111827;
+    box-shadow:
+        0 5px 15px rgba(0, 0, 0, 0.35);
+}
+
+.mini-thumbnail img {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: cover;
+}
+
+
+/* =====================================================
+   SONG INFO
+===================================================== */
+
+.player-song-info {
+    min-width: 0;
+    flex: 1;
+    height: 100px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.player-song-info h4 {
+    margin: 0;
+    color: #f8fafc;
+    font-size: 20px;
+    font-weight: 800;
+    line-height: 1.2;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.player-song-info p {
+    margin: 4px 0 8px;
+    color: #a1a1aa;
+    font-size: 15px;
+    font-weight: 500;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+
+/* =====================================================
+   PROGRESS
+===================================================== */
+
+.player-progress {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    gap: 7px;
+}
+
+.player-progress span {
+    color: #a1a1aa;
+    font-size: 10px;
+    min-width: 27px;
+}
+
+.player-progress span:last-child {
+    text-align: right;
+}
+
+.progress-bar {
+    flex: 1;
+    height: 5px;
+    overflow: hidden;
+    background: rgba(255, 255, 255, 0.18);
+    border-radius: 20px;
+    cursor: pointer;
+}
+
+.progress {
+    width: 0%;
+    height: 100%;
+    background: #f8fafc;
+    border-radius: 20px;
+    transition: width 0.15s linear;
+}
+
+
+/* =====================================================
+   PLAYER CONTROLS
+===================================================== */
+
+.player-controls {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    flex-shrink: 0;
+}
+
+.player-btn {
+    width: 30px;
+    height: 35px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    border: none;
+    background: transparent;
+    color: #d4d4d8;
+    font-size: 14px;
+    cursor: pointer;
+    transition:
+        color 0.2s ease,
+        transform 0.2s ease;
+}
+
+.player-btn:hover {
+    color: #ffffff;
+    transform: scale(1.12);
+}
+
+.player-btn.active {
+    color: #f59e0b;
+}
+
+
+/* =====================================================
+   MAIN PLAY BUTTON
+===================================================== */
+
+.main-play {
+    width: 48px;
+    height: 48px;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    border-radius: 50%;
+    background: #ffffff;
+    color: #111827;
+    font-size: 16px;
+    cursor: pointer;
+    box-shadow:
+        0 5px 15px rgba(0, 0, 0, 0.25);
+    transition:
+        transform 0.2s ease,
+        background 0.2s ease;
+}
+
+.main-play:hover {
+    background: #f59e0b;
+    transform: scale(1.08);
+}
+
+
+/* =====================================================
+   RESPONSIVE
+===================================================== */
+
+@media (max-width: 1100px) {
+
+    .hero {
+        gap: 40px;
+    }
+
+    .hero-art {
+        width: 300px;
+        height: 300px;
+    }
+
+    .mandala {
+        width: 250px;
+        height: 250px;
+    }
+
+    .song-grid {
+        grid-template-columns:
+            repeat(3, minmax(0, 1fr));
+    }
+}
+
+
+@media (max-width: 900px) {
+
+    .navbar {
+        padding: 0 5%;
+    }
+
+    .navbar nav {
+        display: none;
+    }
+
+    .menu-btn {
+        display: block;
+    }
+
+    .hero {
+        padding: 70px 5%;
+    }
+
+    .hero-art {
+        display: none;
+    }
+
+    .hero-content {
+        max-width: 700px;
+    }
+
+    .song-grid {
+        grid-template-columns:
+            repeat(2, minmax(0, 1fr));
+    }
+
+    .music-player {
+        width: calc(100% - 30px);
+    }
+}
+
+
+@media (max-width: 600px) {
+
+    body {
+        padding-bottom: 110px;
+    }
+
+    .navbar {
+        height: 68px;
+    }
+
+    .mobile-menu {
+        top: 68px;
+    }
+
+    .logo {
+        font-size: 16px;
+    }
+
+    .logo-icon {
+        font-size: 22px;
+    }
+
+    .hero {
+        min-height: 520px;
+        padding: 65px 5% 75px;
+    }
+
+    .small-title {
+        font-size: 11px;
+        letter-spacing: 2px;
+    }
+
+    .hero h1 {
+        font-size: 52px;
+        letter-spacing: -3px;
+    }
+
+    .hero-bengali {
+        font-size: 19px;
+    }
+
+    .hero-description {
+        font-size: 14px;
+    }
+
+    .hero-buttons {
+        flex-direction: column;
+    }
+
+    .primary-btn,
+    .secondary-btn {
+        width: 100%;
+        text-align: center;
+    }
+
+    .search-section {
+        padding: 0 5%;
+        margin-top: -25px;
+    }
+
+    .search-box {
+        padding: 13px 15px;
+    }
+
+    .categories {
+        padding: 25px 5% 20px;
+    }
+
+    .category {
+        padding: 9px 14px;
+        font-size: 12px;
+    }
+
+    .section {
+        padding: 40px 5%;
+    }
+
+    .section-heading {
+        align-items: flex-start;
+        gap: 15px;
+    }
+
+    .section-heading h2 {
+        font-size: 27px;
+    }
+
+    .featured-card {
+        grid-template-columns: 1fr;
+    }
+
+    .featured-image {
+        min-height: 230px;
+    }
+
+    .featured-content {
+        padding: 30px;
+    }
+
+    .featured-content h3 {
+        font-size: 32px;
+    }
+
+    .song-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .song-thumbnail {
+        height: 210px;
+    }
+
+    .card-play {
+        opacity: 1;
+        transform: scale(1);
+    }
+
+    .music-player {
+        width: calc(100% - 20px);
+        height: 82px;
+        bottom: 10px;
+        padding: 9px 11px;
+        border-radius: 20px;
+        gap: 10px;
+    }
+
+    .mini-thumbnail {
+        width: 57px;
+        height: 57px;
+        border-radius: 11px;
+    }
+
+    .player-song-info {
+        height: 58px;
+    }
+
+    .player-song-info h4 {
+        font-size: 12px;
+    }
+
+    .player-song-info p {
+        font-size: 9px;
+        margin-top: 3px;
+        margin-bottom: 6px;
+    }
+
+    .player-progress {
+        display: flex;
+        gap: 5px;
+    }
+
+    .player-progress span {
+        font-size: 8px;
+        min-width: 20px;
+    }
+
+    .progress-bar {
+        height: 4px;
+    }
+
+    .player-controls {
+        gap: 8px;
+    }
+
+    .player-controls .player-btn {
+        display: none;
+    }
+
+    .player-controls .main-play {
+        width: 38px;
+        height: 38px;
+    }
+
+    footer {
+        padding: 55px 5% 110px;
+    }
+}
+
+
+@media (max-width: 380px) {
+
+    .hero h1 {
+        font-size: 44px;
+    }
+
+    .hero-bengali {
+        font-size: 17px;
+    }
+
+    .section-heading h2 {
+        font-size: 24px;
+    }
+
+    .category {
+        padding: 8px 12px;
+    }
+
+    .player-controls {
+        gap: 18px;
+    }
+}
+
+
+/* =====================================================
+   PUJA RADIO - FLOATING ABOVE MUSIC PLAYER
+===================================================== */
+
+.puja-radio-wrapper {
+    position: fixed;
+
+    /* CENTER HORIZONTALLY */
+    left: 50%;
+    transform: translateX(-50%);
+
+    /* ABOVE THE MUSIC PLAYER */
+    bottom: 185px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+
+    z-index: 9999;
+}
+
+
+/* =====================================================
+   MAIN BUTTON
+===================================================== */
+
+.puja-radio-btn,
+.dhak-btn {
+    border: 1px solid rgba(255, 255, 255, 0.14);
+
+    /* FROSTED GLASS */
+    background:
+        linear-gradient(
+            135deg,
+            rgba(46, 40, 28, 0.72),
+            rgba(38, 22, 22, 0.68)
+        );
+
+    color: rgba(255, 255, 255, 0.92);
+
+    height: 50px;
+    padding: 0 14px;
+
+    border-radius: 18px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 7px;
+
+    font-family: Arial, sans-serif;
+    font-size: 15px;
+    font-weight: 700;
+    letter-spacing: 0.8px;
+
+    cursor: pointer;
+
+    /* SAME FLOATING GLASS FEEL */
+    box-shadow:
+        0 8px 30px rgba(0, 0, 0, 0.30),
+        inset 0 1px 0 rgba(255, 255, 255, 0.08);
+
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+
+    transition:
+        transform 0.25s ease,
+        background 0.25s ease,
+        box-shadow 0.25s ease;
+}
+
+
+.puja-radio-btn:hover,
+.dhak-btn:hover {
+    transform: translateY(-2px);
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(55, 46, 39, 0.88),
+            rgba(30, 27, 30, 0.86)
+        );
+
+    box-shadow:
+        0 12px 35px rgba(0, 0, 0, 0.38),
+        inset 0 1px 0 rgba(255, 255, 255, 0.10);
+}
+
+.menu-icon {
+    font-size: 13px;
+    opacity: 0.9;
+}
+
+.arrow {
+    font-size: 14px;
+    margin-left: 2px;
+    transition: transform 0.25s ease;
+}
+
+.puja-radio-btn.active .arrow {
+    transform: rotate(180deg);
+}
+
+
+/* =====================================================
+   DHAK BUTTON
+===================================================== */
+
+.dhak-btn {
+    padding: 0 13px;
+}
+
+.dhak-btn span:first-child {
+    font-size: 14px;
+}
+
+
+/* =====================================================
+   PLAYLIST OVERLAY
+===================================================== */
+
+.playlist-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 10000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    background: rgba(5, 10, 12, 0.42);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    opacity: 0;
+    visibility: hidden;
+    transition:
+        opacity 0.3s ease,
+        visibility 0.3s ease;
+}
+
+
+/* =====================================================
+   OPEN STATE
+===================================================== */
+
+.playlist-overlay.show {
+    opacity: 1;
+    visibility: visible;
+}
+
+
+/* =====================================================
+   PLAYLIST MODAL
+===================================================== */
+
+.playlist-modal {
+    width: min(510px, 100%);
+    max-height: 620px;
+    overflow: hidden;
+    border-radius: 30px;
+    border: 1px solid rgba(255, 255, 255, 0.16);
+    background:
+        linear-gradient(
+            145deg,
+            rgba(40, 57, 61, 0.93),
+            rgba(59, 48, 40, 0.96)
+        );
+    box-shadow:
+        0 30px 80px rgba(0, 0, 0, 0.55),
+        inset 0 1px 0 rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(25px);
+    -webkit-backdrop-filter: blur(25px);
+    transform:
+        translateY(20px)
+        scale(0.97);
+    transition: transform 0.3s ease;
+    display: flex;
+    flex-direction: column;
+}
+
+.playlist-overlay.show .playlist-modal {
+    transform:
+        translateY(0)
+        scale(1);
+}
+
+
+/* =====================================================
+   HEADER
+===================================================== */
+
+.playlist-header {
+     height: 64px;
+    padding: 0 22px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    flex-shrink: 0;
+}
+
+.playlist-heading h3 {
+    margin: 0;
+    color: rgba(255, 255, 255, 0.72);
+    font-size: 12px;
+    letter-spacing: 1.5px;
+    font-weight: 800;
+}
+
+.playlist-close {
+    width: 32px;
+    height: 32px;
+    border: none;
+    background: transparent;
+    color: rgba(255, 255, 255, 0.65);
+    font-size: 27px;
+    line-height: 1;
+    cursor: pointer;
+    border-radius: 50%;
+    transition:
+        background 0.2s ease,
+        color 0.2s ease;
+}
+
+.playlist-close:hover {
+    background: rgba(255, 255, 255, 0.08);
+    color: white;
+}
+
+
+/* =====================================================
+   TABS
+===================================================== */
+
+.playlist-tabs {
+    display: flex;
+    flex-shrink: 0;
+    min-height: 48px;
+    gap: 8px;
+    padding: 13px 16px 5px;
+    overflow-x: auto;
+    scrollbar-width: none;
+    box-sizing: border-box;
+}
+
+.playlist-tabs::-webkit-scrollbar {
+    display: none;
+}
+
+.playlist-tab {
+    flex: 1;
+    min-width: 130px;
+    height: 30px;
+    padding: 0 15px;
+    border: none;
+    border-radius: 18px;
+    background: transparent;
+    color: rgba(255, 255, 255, 0.45);
+    font-size: 10px;
+    font-weight: 800;
+    letter-spacing: 0.6px;
+    cursor: pointer;
+    white-space: nowrap;
+    transition:
+        background 0.25s ease,
+        color 0.25s ease;
+}
+
+.playlist-tab:hover {
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.playlist-tab.active {
+    background: rgba(192, 202, 185, 0.32);
+    color: white;
+    box-shadow:
+        inset 0 1px 0 rgba(255, 255, 255, 0.06);
+}
+
+
+/* =====================================================
+   DESCRIPTION
+===================================================== */
+
+.playlist-description {
+    flex-shrink: 0;
+    padding: 7px 21px 12px;
+    color: rgba(255, 255, 255, 0.40);
+    font-size: 11px;
+    line-height: 1.5;
+}
+
+
+/* =====================================================
+   SONG LIST
+===================================================== */
+
+.song-list {
+    flex: 1 1 auto;
+    min-height: 0;
+    overflow-y: auto;
+    padding: 0 11px 16px;
+    scrollbar-width: thin;
+    scrollbar-color:
+        rgba(255, 255, 255, 0.25)
+        transparent;
+}
+
+.song-list::-webkit-scrollbar {
+    width: 5px;
+}
+
+.song-list::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.song-list::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.22);
+    border-radius: 10px;
+}
+
+
+/* =====================================================
+   SONG ITEM
+===================================================== */
+
+.song-item {
+    display: grid;
+    grid-template-columns:
+        34px 46px 1fr auto;
+    align-items: center;
+    gap: 10px;
+    min-height: 70px;
+    padding: 8px 12px;
+    margin-bottom: 3px;
+    border-radius: 17px;
+    cursor: pointer;
+    transition:
+        background 0.25s ease,
+        transform 0.2s ease;
+}
+
+.song-item:hover {
+    background: rgba(255, 255, 255, 0.07);
+    transform: translateX(2px);
+}
+
+.song-item.active {
+    background: rgba(183, 192, 177, 0.25);
+    box-shadow:
+        inset 0 1px 0 rgba(255, 255, 255, 0.04);
+}
+
+
+/* =====================================================
+   SONG NUMBER
+===================================================== */
+
+.song-number {
+    color: rgba(255, 214, 53, 0.85);
+    font-size: 11px;
+    font-weight: 700;
+    text-align: center;
+}
+
+
+/* =====================================================
+   THUMBNAIL
+===================================================== */
+
+.song-thumbnail {
+    width: 46px;
+    height: 46px;
+    border-radius: 10px;
+    object-fit: cover;
+    background: rgba(255, 255, 255, 0.08);
+    box-shadow:
+        0 4px 12px rgba(0, 0, 0, 0.25);
+}
+
+
+/* =====================================================
+   SONG INFORMATION
+===================================================== */
+
+.song-info {
+    min-width: 0;
+}
+
+.song-title {
+    color: white;
+    font-size: 13px;
+    font-weight: 700;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    margin-bottom: 5px;
+}
+
+.song-artist {
+    color: rgba(255, 255, 255, 0.48);
+    font-size: 10px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+
+/* =====================================================
+   DURATION
+===================================================== */
+
+.song-duration {
+    color: rgba(255, 255, 255, 0.42);
+    font-size: 10px;
+    white-space: nowrap;
+}
+
+
+/* =====================================================
+   MOBILE PLAYLIST
+===================================================== */
+
+@media (max-width: 600px) {
+
+    .puja-radio-wrapper {
+    left: 50%;
+    bottom: 104px;
+    transform: translateX(-50%);
+}
+
+    .playlist-overlay {
+        align-items: flex-end;
+        padding: 0;
+    }
+
+    .playlist-modal {
+        width: 100%;
+        max-height: 78vh;
+        border-radius: 27px 27px 0 0;
+        transform: translateY(100%);
+    }
+
+    .playlist-overlay.show .playlist-modal {
+        transform: translateY(0);
+    }
+
+    .playlist-header {
+        height: 58px;
+    }
+
+    .playlist-tabs {
+        padding-left: 12px;
+        padding-right: 12px;
+    }
+
+    .playlist-tab {
+        min-width: 120px;
+    }
+
+    .song-item {
+        grid-template-columns:
+            30px 44px 1fr auto;
+        gap: 8px;
+        padding: 7px 8px;
+    }
+
+    .song-thumbnail {
+        width: 44px;
+        height: 44px;
+    }
+}
+
+
+/* =====================================================
+   SHARODIYA - IOS STYLE BENGALI CALENDAR
+===================================================== */
+
+/* =====================================================
+   SHARODIYA - LARGE IOS STYLE BENGALI CALENDAR
+===================================================== */
+
+/* =====================================================
+   SHARODIYA - COMPACT IOS STYLE BENGALI CALENDAR
+===================================================== */
+
+.ios-calendar-widget {
+    width: min(100%, 1000px);
+    min-height: 360px;
+
+    margin: 0 auto;
+
+    display: grid;
+    grid-template-columns: 0.9fr 1.1fr;
+
+    position: relative;
+    overflow: hidden;
+
+    border-radius: 24px;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(46, 40, 28, 0.72),
+            rgba(38, 22, 22, 0.68)
+        );
+
+    border: 1px solid rgba(255, 255, 255, 0.04);
+
+    backdrop-filter: blur(30px);
+    -webkit-backdrop-filter: blur(30px);
+
+    box-shadow:
+        0 20px 55px rgba(0, 0, 0, 0.473),
+        inset 0 1px 0 rgba(255, 255, 255, 0.137);
+
+    color: #fff;
+
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+.ios-calendar-widget::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+
+    pointer-events: none;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(255, 255, 255, 0.06),
+            transparent 40%,
+            rgba(255, 255, 255, 0.015)
+        );
+}
+
+.ios-calendar-widget:hover {
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 25px 65px rgba(0, 0, 0, 0.36),
+        inset 0 1px 0 rgba(255, 255, 255, 0.10);
+}
+
+
+/* =====================================================
+   TODAY SIDE
+===================================================== */
+
+.calendar-today {
+    position: relative;
+    z-index: 1;
+
+    padding: 28px 32px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    border-right:
+        1px solid rgba(255, 255, 255, 0.08);
+}
+
+
+/* =====================================================
+   TOP
+===================================================== */
+
+.today-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+}
+
+.today-weekday {
+    font-size: 13px;
+    font-weight: 700;
+
+    color:
+        rgba(255, 255, 255, 0.88);
+}
+
+.today-label {
+    font-size: 8px;
+
+    letter-spacing: 1.2px;
+
+    font-weight: 700;
+
+    opacity: 0.40;
+}
+
+
+/* =====================================================
+   ENGLISH DATE
+===================================================== */
+
+.today-date {
+    margin-top: 3px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.english-day {
+    font-size: 58px;
+
+    line-height: 0.95;
+
+    font-weight: 800;
+
+    letter-spacing: -3px;
+
+    color: #fff;
+
+    text-shadow:
+        0 4px 20px rgba(0, 0, 0, 0.25);
+}
+
+.english-month {
+    margin-top: 7px;
+
+    font-size: 15px;
+
+    font-weight: 600;
+
+    opacity: 0.78;
+}
+
+.english-year {
+    margin-top: 2px;
+
+    font-size: 10px;
+
+    letter-spacing: 0.8px;
+
+    opacity: 0.40;
+}
+
+
+/* =====================================================
+   BENGALI DATE
+===================================================== */
+
+.bangla-today {
+    margin-top: 12px;
+
+    display: flex;
+    flex-direction: column;
+
+    gap: 3px;
+}
+
+.bangla-small-label {
+    font-size: 8px;
+
+    letter-spacing: 0.8px;
+
+    opacity: 0.40;
+}
+
+.bangla-today strong {
+    font-size: 16px;
+
+    font-weight: 700;
+
+    color:
+        rgba(255, 255, 255, 0.94);
+}
+
+
+/* =====================================================
+   TITHI / PAKSHA
+===================================================== */
+
+.today-panchang {
+    margin-top: 13px;
+
+    display: flex;
+    align-items: center;
+
+    gap: 18px;
+}
+
+.panchang-item {
+    display: flex;
+    align-items: center;
+
+    gap: 7px;
+}
+
+.panchang-icon {
+    width: 28px;
+    height: 28px;
+
+    flex-shrink: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+
+    background:
+        rgba(255, 255, 255, 0.07);
+
+    border:
+        1px solid rgba(255, 255, 255, 0.08);
+
+    font-size: 12px;
+}
+
+.panchang-item div {
+    display: flex;
+    flex-direction: column;
+
+    gap: 1px;
+}
+
+.panchang-item small {
+    font-size: 8px;
+
+    letter-spacing: 0.6px;
+
+    opacity: 0.42;
+}
+
+.panchang-item strong {
+    font-size: 13px;
+
+    font-weight: 700;
+
+    white-space: nowrap;
+}
+
+
+/* =====================================================
+   MONTH SIDE
+===================================================== */
+
+.calendar-month {
+    position: relative;
+    z-index: 1;
+
+    padding: 27px 32px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+
+/* =====================================================
+   MONTH HEADER
+===================================================== */
+
+.month-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    margin-bottom: 12px;
+}
+
+.month-title {
+    display: flex;
+    align-items: baseline;
+
+    gap: 7px;
+}
+
+.month-title strong {
+    font-size: 17px;
+
+    font-weight: 700;
+}
+
+.month-title span {
+    font-size: 10px;
+
+    opacity: 0.43;
+}
+
+.calendar-bengali-month {
+    margin-top: -7px;
+    margin-bottom: 7px;
+
+    text-align: center;
+
+    font-family: "Noto Serif Bengali", serif;
+    font-size: 11px;
+    line-height: 1.2;
+    font-weight: 600;
+
+    color: rgba(255, 255, 255, 0.58);
+
+    white-space: nowrap;
+}
+
+.calendar-nav {
+    width: 28px;
+    height: 28px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border: none;
+
+    border-radius: 50%;
+
+    background:
+        rgba(255, 255, 255, 0.06);
+
+    color:
+        rgba(255, 255, 255, 0.75);
+
+    font-size: 19px;
+
+    line-height: 1;
+
+    cursor: pointer;
+
+    transition:
+        background 0.2s ease,
+        transform 0.2s ease;
+}
+
+.calendar-nav:hover {
+    background:
+        rgba(255, 255, 255, 0.13);
+
+    transform: scale(1.07);
+}
+
+
+/* =====================================================
+   WEEKDAYS
+===================================================== */
+
+.calendar-weekdays {
+    display: grid;
+
+    grid-template-columns:
+        repeat(7, 1fr);
+
+    gap: 4px;
+
+    margin-bottom: 6px;
+}
+
+.calendar-weekdays span {
+    text-align: center;
+
+    font-size: 9px;
+
+    font-weight: 600;
+
+    opacity: 0.38;
+
+    white-space: nowrap;
+}
+
+
+/* =====================================================
+   CALENDAR GRID
+===================================================== */
+
+.calendar-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(7, 1fr);
+
+    grid-auto-rows: 42px;
+
+    gap: 3px;
+}
+
+.calendar-day {
+    width: 28px;
+    height: 28px;
+
+    justify-self: center;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+
+    font-size: 10px;
+
+    color:
+        rgba(255, 255, 255, 0.78);
+
+    transition:
+        background 0.2s ease,
+        transform 0.2s ease;
+}
+
+.calendar-day:not(.empty):hover {
+    background:
+        rgba(255, 255, 255, 0.09);
+
+    transform: scale(1.08);
+}
+
+.calendar-day.today {
+    background:
+        rgba(255, 255, 255, 0.94);
+
+    color:
+        #17151b;
+
+    font-weight: 800;
+
+    box-shadow:
+        0 3px 12px rgba(0, 0, 0, 0.25);
+}
+
+.calendar-day.weekend {
+    color:
+        rgba(255, 255, 255, 0.46);
+}
+
+.calendar-day.today.weekend {
+    color:
+        #17151b;
+}
+
+.calendar-day.empty {
+    pointer-events: none;
+
+    opacity: 0;
+}
+
+
+/* =====================================================
+   FOOTER
+===================================================== */
+
+.calendar-footer {
+    margin-top: 8px;
+
+    padding-top: 8px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    border-top:
+        1px solid rgba(255, 255, 255, 0.07);
+}
+
+.calendar-footer span {
+    font-size: 7px;
+
+    letter-spacing: 0.7px;
+
+    opacity: 0.36;
+}
+
+.calendar-footer strong {
+    font-size: 10px;
+
+    font-weight: 600;
+
+    opacity: 0.72;
+}
+
+
+/* =====================================================
+   ATTRIBUTION
+===================================================== */
+
+.panchang-attribution {
+    width: min(100%, 760px);
+
+    margin: 6px auto 0;
+
+    font-size: 7px;
+
+    text-align: right;
+
+    opacity: 0.22;
+}
+
+
+/* =====================================================
+   TABLET
+===================================================== */
+
+@media (max-width: 800px) {
+
+    .ios-calendar-widget {
+        width: calc(100% - 30px);
+
+        min-height: 270px;
+
+        grid-template-columns:
+            0.9fr 1.1fr;
+
+        border-radius: 22px;
+    }
+
+    .calendar-today {
+        padding: 22px;
+    }
+
+    .calendar-month {
+        padding: 22px;
+    }
+
+    .english-day {
+        font-size: 52px;
+    }
+
+    .calendar-grid {
+        grid-auto-rows: 36px;
+    }
+
+    .calendar-day {
+        width: 34px;
+        height: 34px;
+    }
+}
+
+
+/* =====================================================
+   MOBILE
+===================================================== */
+
+@media (max-width: 650px) {
+
+    .ios-calendar-widget {
+        width: calc(100% - 20px);
+
+        min-height: auto;
+
+        grid-template-columns: 1fr;
+
+        border-radius: 21px;
+    }
+
+    .calendar-today {
+        border-right: none;
+
+        border-bottom:
+            1px solid rgba(255, 255, 255, 0.08);
+
+        padding: 22px;
+    }
+
+    .calendar-month {
+        padding: 22px;
+    }
+
+    .english-day {
+        font-size: 50px;
+    }
+
+    .english-month {
+        font-size: 14px;
+    }
+
+    .bangla-today strong {
+        font-size: 15px;
+    }
+
+    .today-panchang {
+        gap: 16px;
+    }
+
+    .calendar-grid {
+        grid-auto-rows: 34px;
+    }
+
+    .calendar-day {
+        width: 32px;
+        height: 32px;
+
+        font-size: 10px;
+    }
+}
+
+
+/* =====================================================
+   SMALL MOBILE
+===================================================== */
+
+@media (max-width: 430px) {
+
+    .ios-calendar-widget {
+        width: calc(100% - 14px);
+
+        border-radius: 19px;
+    }
+
+    .calendar-today {
+        padding: 19px;
+    }
+
+    .calendar-month {
+        padding: 19px;
+    }
+
+    .today-weekday {
+        font-size: 12px;
+    }
+
+    .english-day {
+        font-size: 46px;
+
+        letter-spacing: -2px;
+    }
+
+    .english-month {
+        font-size: 13px;
+    }
+
+    .english-year {
+        font-size: 9px;
+    }
+
+    .bangla-today {
+        margin-top: 11px;
+    }
+
+    .bangla-today strong {
+        font-size: 14px;
+    }
+
+    .today-panchang {
+        gap: 10px;
+
+        flex-wrap: wrap;
+    }
+
+    .panchang-icon {
+        width: 26px;
+        height: 26px;
+
+        font-size: 11px;
+    }
+
+    .panchang-item strong {
+        font-size: 12px;
+    }
+
+    .month-title strong {
+        font-size: 15px;
+    }
+
+    .calendar-nav {
+        width: 27px;
+        height: 27px;
+    }
+
+    .calendar-weekdays {
+        gap: 2px;
+    }
+
+    .calendar-weekdays span {
+        font-size: 7px;
+    }
+
+    .calendar-grid {
+        grid-auto-rows: 31px;
+
+        gap: 2px;
+    }
+
+    .calendar-day {
+        width: 30px;
+        height: 30px;
+
+        font-size: 9px;
+    }
+}
+
+.durga-symbol img {
+    width: 280px;
+    height: 280px;
+    object-fit: contain;
+    display: block;
+}
+
+.sun {
+    position: relative;
+    overflow: hidden;
+}
+
+.sun-video {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0;
+    transition: opacity 0.6s ease;
+}
+
+.sun.has-video .sun-video {
+    opacity: 1;
+}
+
+.sun.has-video ~ .temple {
+    opacity: 0;
+}
+
+
+.featured-video {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center 25%;   /* raise or lower to keep the face in view */
+    opacity: 0;
+    transition: opacity 0.6s ease;
+    z-index: 1;
+}
+
+.featured-image.has-video .featured-video {
+    opacity: 1;
+}
+
+.featured-image.has-video .sun {
+    opacity: 0;
+}
+
+/* soft fade so the video blends into the dark card */
+.featured-image::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 2;
+    pointer-events: none;
+    background: linear-gradient(to right, transparent 60%, #11111a 100%);
+}
+
+@media (max-width: 600px) {
+    .featured-image::after {
+        background: linear-gradient(to bottom, transparent 65%, #11111a 100%);
+    }
+}
+
+/* =====================================================
+   MAHALAYA BANNER - PLAY NOW BUTTON STATES
+===================================================== */
+
+.play-featured {
+    cursor: pointer;
+    border: 0;
+}
+
+.play-featured.is-playing {
+    background: #fbbf24;
+    box-shadow: 0 0 22px rgba(245, 158, 11, 0.45);
+}
+
+
+
+/* =====================================================
+   QR + INSTAGRAM POPUPS
+===================================================== */
+
+.info-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 10050;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    background: rgba(5, 5, 10, 0.62);
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+    opacity: 0;
+    visibility: hidden;
+    /* hide after the fade-out finishes */
+    transition: opacity 0.25s ease, visibility 0s linear 0.25s;
+}
+
+.info-overlay.show {
+    opacity: 1;
+    visibility: visible;
+    /* show immediately so the close button can take focus */
+    transition: opacity 0.25s ease, visibility 0s linear 0s;
+}
+
+.info-modal {
+    position: relative;
+    width: min(340px, 100%);
+    max-height: calc(100vh - 40px);
+    overflow-y: auto;
+    padding: 30px 24px 24px;
+    text-align: center;
+    color: #f8fafc;
+    background:
+        linear-gradient(
+            135deg,
+            rgba(46, 40, 28, 0.94),
+            rgba(38, 22, 22, 0.92)
+        );
+    border: 1px solid rgba(255, 255, 255, 0.14);
+    border-radius: 26px;
+    box-shadow:
+        0 24px 60px rgba(0, 0, 0, 0.5),
+        inset 0 1px 0 rgba(255, 255, 255, 0.08);
+    transform: translateY(14px) scale(0.97);
+    transition: transform 0.25s ease;
+}
+
+.info-overlay.show .info-modal {
+    transform: translateY(0) scale(1);
+}
+
+.info-close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    width: 34px;
+    height: 34px;
+    border: 0;
+    border-radius: 50%;
+    font-size: 22px;
+    line-height: 1;
+    color: #fff;
+    background: rgba(255, 255, 255, 0.1);
+    cursor: pointer;
+    transition: background 0.2s ease;
+}
+
+.info-close:hover {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+.info-title {
+    margin: 0 0 16px;
+    color: #f5a400;
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: 2px;
+}
+
+.info-message {
+    margin: 16px 0 0;
+    font-family: "Noto Serif Bengali", "Manrope", serif;
+    font-size: 15px;
+    line-height: 1.55;
+    color: rgba(255, 255, 255, 0.92);
+}
+
+.info-message:empty {
+    display: none;
+}
+
+.info-from {
+    display: block;
+    margin-top: 8px;
+    font-size: 12px;
+    font-weight: 700;
+    color: rgba(255, 255, 255, 0.58);
+}
+
+.info-from:empty {
+    display: none;
+}
+
+
+/* ---------- QR ---------- */
+
+.qr-image {
+    width: 220px;
+    max-width: 100%;
+    aspect-ratio: 1;
+    display: block;
+    margin: 0 auto;
+    object-fit: contain;
+    padding: 10px;
+    border-radius: 18px;
+    background: #fff;
+}
+
+.qr-image[hidden] {
+    display: none;
+}
+
+
+/* ---------- INSTAGRAM ---------- */
+
+.insta-photo {
+    position: relative;
+    width: 108px;
+    height: 108px;
+    margin: 6px auto 14px;
+    padding: 3px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #f59e0b, #ef4444, #a855f7);
+}
+
+.insta-photo img {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 3px solid #1b1420;
+    background: #1b1420;
+}
+
+.insta-photo img[hidden] {
+    display: none;
+}
+
+.insta-initial {
+    position: absolute;
+    font-size: 40px;
+    font-weight: 800;
+    color: #fff;
+}
+
+.insta-name {
+    display: block;
+    font-size: 19px;
+    font-weight: 800;
+}
+
+.insta-id {
+    display: block;
+    margin-top: 3px;
+    font-size: 14px;
+    font-weight: 600;
+    color: rgba(255, 255, 255, 0.6);
+}
+
+.insta-btn {
+    margin-top: 18px;
+    display: block;
+    padding: 12px 14px;
+    border-radius: 14px;
+    text-align: center;
+    font-size: 14px;
+    font-weight: 800;
+    color: #111;
+    background: #f59e0b;
+    transition: background 0.25s ease, transform 0.25s ease;
+}
+
+.insta-btn:hover {
+    background: #fbbf24;
+    transform: translateY(-2px);
+}
+
+
+/* =====================================================
+   DHAK BUTTON : PLAYING STATE
+===================================================== */
+
+.dhak-btn.playing {
+    border-color: rgba(245, 164, 0, 0.55);
+    box-shadow:
+        0 8px 30px rgba(0, 0, 0, 0.30),
+        0 0 20px rgba(245, 164, 0, 0.35),
+        inset 0 1px 0 rgba(255, 255, 255, 0.08);
+}
+
+.dhak-btn.playing .dhak-icon {
+    display: inline-block;
+    animation: dhakBeat 0.5s ease-in-out infinite alternate;
+}
+
+@keyframes dhakBeat {
+    from { transform: scale(1); }
+    to   { transform: scale(1.25) rotate(-8deg); }
+}
+
+
+/* =====================================================
+   CALENDAR DUAL-DATE CELLS
+   English date remains primary; Bengali date is secondary.
+   Bengali cells show only the Bengali day number.
+===================================================== */
+
+.calendar-day {
+    position: relative;
+    width: 38px;
+    height: 38px;
+
+    flex-direction: column;
+    gap: 0;
+
+    line-height: 1;
+    border-radius: 10px;
+}
+
+.calendar-day-number {
+    font-size: 11.5px;
+    line-height: 1.1;
+    font-weight: 700;
+}
+
+.calendar-day-bengali {
+    display: block;
+
+    max-width: 38px;
+    margin-top: 3px;
+
+    font-family: "Noto Serif Bengali", serif;
+    font-size: 8.5px;
+    line-height: 1;
+    font-weight: 600;
+
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+
+    color: rgba(255,255,255,0.52);
+}
+
+.calendar-day.today .calendar-day-bengali {
+    color: rgba(23,21,27,0.58);
+}
+
+/* Keep the calendar readable on medium screens. */
+@media (max-width: 800px) and (min-width: 651px) {
+    .calendar-grid {
+        grid-auto-rows: 36px;
+    }
+
+    .calendar-day {
+        width: 36px;
+        height: 36px;
+    }
+
+    .calendar-day-number {
+        font-size: 11px;
+    }
+
+    .calendar-day-bengali {
+        max-width: 36px;
+        font-size: 8px;
+    }
+
+    .calendar-bengali-month {
+        font-size: 10px;
+    }
+}
+
+@media (max-width: 650px) {
+    .calendar-bengali-month {
+        margin-top: -5px;
+        margin-bottom: 6px;
+        font-size: 10px;
+    }
+
+    .calendar-day {
+        width: 34px;
+        height: 34px;
+    }
+
+    .calendar-day-number {
+        font-size: 10.5px;
+    }
+
+    .calendar-day-bengali {
+        max-width: 34px;
+        font-size: 7.5px;
+    }
+}
+
+@media (max-width: 430px) {
+    .calendar-bengali-month {
+        font-size: 9px;
+    }
+
+    .calendar-day {
+        width: 31px;
+        height: 31px;
+    }
+
+    .calendar-day-number {
+        font-size: 10px;
+    }
+
+    .calendar-day-bengali {
+        max-width: 31px;
+        font-size: 7px;
+    }
+}
+
+/* Mobile safety: prevent long Bengali/English strings from forcing
+   horizontal scrolling while preserving the existing visual style. */
+html,
+body {
+    max-width: 100%;
+    overflow-x: hidden;
+}
+
+img,
+video,
+iframe {
+    max-width: 100%;
+}
+
+button,
+a {
+    -webkit-tap-highlight-color: transparent;
+}
+
+@media (max-width: 600px) {
+    .sharodiya-status-bar {
+        width: 100%;
+        max-width: 100vw;
+        overflow: visible;
+    }
+
+    .status-countdown {
+        max-width: 42vw;
+    }
+
+    .status-puja {
+        max-width: 30vw;
+    }
+
+    .status-logo {
+        flex: 0 0 auto;
+    }
+
+    .hero {
+        width: 100%;
+    }
+
+    .featured-content {
+        min-width: 0;
+    }
+
+    .playlist-modal {
+        max-width: 100vw;
+    }
+
+    .song-list {
+        min-width: 0;
+    }
+}
+
+@media (max-width: 380px) {
+    .status-countdown {
+        max-width: 39vw;
+    }
+
+    .status-puja {
+        max-width: 27vw;
+    }
+}
+
+.seo-intro {
+    max-width: 760px;
+    margin: -8px auto 22px;
+    color: rgba(255,255,255,0.58);
+    font-size: 13px;
+    line-height: 1.7;
+    text-align: center;
+}
+@media (max-width: 600px) {
+    .seo-intro {
+        margin: -4px auto 18px;
+        font-size: 12px;
+        text-align: left;
+    }
+}
+
+.seo-intro [lang="bn"] {
+    display: block;
+    margin-top: 3px;
+    font-family: "Noto Serif Bengali", serif;
+}
